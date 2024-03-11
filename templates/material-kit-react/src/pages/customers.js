@@ -23,7 +23,7 @@ const data = [
     },
     // avatar: '/assets/avatars/avatar-carson-darrin.png',
     createdAt: subDays(subHours(now, 7), 1).getTime(),
-    name: 'lumin1',
+    name: 'luminUV 1',
     status: 'Online'
   },
   {
@@ -33,7 +33,6 @@ const data = [
       country: 'USA',
       state: 'Texas',
     },
-    // avatar: '/assets/avatars/avatar-carson-darrin.png',
     createdAt: subDays(subHours(now, 7), 1).getTime(),
     name: 'jetson 341',
     status: 'Online'
@@ -45,11 +44,21 @@ const data = [
       country: 'USA',
       state: 'California',
     },
-    // avatar: '/assets/avatars/avatar-carson-darrin.png',
     createdAt: subDays(subHours(now, 7), 1).getTime(),
     name: 'Orin 31',
     status: 'Offline'
-  }
+  },
+  {
+    id: '4',
+    address: {
+      city: 'Menlo Park',
+      country: 'USA',
+      state: 'California',
+    },
+    createdAt: subDays(subHours(now, 7), 1).getTime(),
+    name: 'OrangePi 73',
+    status: 'Online'
+  },
 ];
 
 const useCustomers = (page, rowsPerPage) => {
@@ -91,6 +100,8 @@ const Page = () => {
     []
   );
 
+  const online = data.reduce((sum, i) => sum + (i.status == 'Online' ? 1 : 0), 0);
+
   return (
     <>
       <Head>
@@ -121,7 +132,7 @@ const Page = () => {
                   direction="row"
                   spacing={1}
                 >
-                  2 Online, 1 Offline
+                { online } Online, { data.length - online } Offline
                 </Stack>
               </Stack>
               <div>
@@ -133,7 +144,7 @@ const Page = () => {
                   )}
                   variant="contained"
                 >
-                  Add
+                  Bringup
                 </Button>
               </div>
             </Stack>
