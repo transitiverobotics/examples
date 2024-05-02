@@ -5,7 +5,7 @@ import './App.css';
 
 const loadComponent = (capability, name, userId, deviceId) => {
   if (userId && deviceId && !customElements.get(name)) {
-    const host = 'http://portal.homedesk.local:8000';
+    const host = 'http://portal.homedesk.local';
     const script = document.createElement('script');
     const params = `userId=${userId}&deviceId=${deviceId}`;
 //     script.type = 'module';
@@ -21,7 +21,7 @@ const loadComponent = (capability, name, userId, deviceId) => {
 const loadComponentPromise = (capability, name, userId, deviceId) => {
   return new Promise((resolve, reject) => {
     if (userId && deviceId && !customElements.get(name)) {
-      const host = 'http://portal.homedesk.local:8000';
+      const host = 'http://portal.homedesk.local';
       const script = document.createElement('script');
       // script.type = 'module';
       const params = `userId=${userId}&deviceId=${deviceId}`;

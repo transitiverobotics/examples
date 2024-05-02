@@ -16,7 +16,10 @@
     /* video {
       display: none;
     } */
-</style>
+    .btn, .badge {
+      color: red;
+    }
+  </style>
 
 <!-- <script>
   let handlers = {onLag: console.log};
@@ -27,14 +30,106 @@
 <body>
   <h1>Transitive: webrtc-video demo</h1>
   <div>
-    homedesk
 
-    <script src="http://portal.homedesk.local:8000/running/@transitive-robotics/webrtc-video/dist/webrtc-video-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
-<webrtc-video-device id="cfritz" host="homedesk.local:8000" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy93ZWJydGMtdmlkZW8iLCJ2YWxpZGl0eSI6ODY0MDAsImlhdCI6MTY5MzA3MDc0OX0.x95isfCtUIkLLilkwJ9uy15kfLLjHzWj9i_3o4fNAwg"
-  bitrate=50
-  count=1
+    homedesk
+    <button type="button" class="btn btn-primary">outside button</button>
+    <span variant="success" class="badge bg-primary">outside badge</span>
+
+    <!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/webrtc-video/dist/webrtc-video-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+    <webrtc-video-device id="cfritz" host="homedesk.local" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy93ZWJydGMtdmlkZW8iLCJ2YWxpZGl0eSI6ODY0MDAsImlhdCI6MTcwMjY2NTkxMn0.DBn6quBTl9lL_PKXtKTd2rwQy77Su3yepwMVfhHC0xg"
+      bitrate=50
+      count=1
+      framerate="30/1"
+      height="480"
+      source="/dev/video2"
+      streamtype="video/x-h264"
+      timeout=1800
+      type="v4l2src"
+      width="640"
+      disabledeviceverification="true"
+      />
+      record="true"
+      streamtype="video/x-raw" -->
+
+      <!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/webrtc-video/dist/webrtc-video-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+      <webrtc-video-device id="cfritz" host="homedesk.local" ssl="false"
+      jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy93ZWJydGMtdmlkZW8iLCJ2YWxpZGl0eSI6ODY0MDAsImlhdCI6MTcwNDE1NTU0MX0.rYn8ZbWgIRTASQWMfFG6uBAGUPSvcDBd1R8PF0jdIwY"
+      bitrate=50
+      count=1
+      timeout=1800
+      type="videotestsrc"
+      forcerelay=true
+      turnserver="homedesk.local"
+      />
+
+      framerate="30/1"
+      height="480"
+      source="/dev/video10"
+      streamtype="video/x-h264"
+      type="v4l2src"
+      width="640"
+      disabledeviceverification="true"
+
+
+      type="custom-h264"
+      source="udpsrc port=9001 caps=application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264,payload=(int)96 ! rtph264depay"
+
+
+      audio="true"
+
+      type="rtsp"
+      value="rtsp://localhost:8554/cam" -->
+
+      <!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/health-monitoring/dist/health-monitoring-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+      <health-monitoring-device id="cfritz" host="homedesk.local" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy9oZWFsdGgtbW9uaXRvcmluZyIsInZhbGlkaXR5Ijo4NjQwMCwiaWF0IjoxNzA2OTA5NTU5fQ.z2O_5R-IDVGQy6XVb99_lPVba3apW2gHeowphr-0l1c"
+        delimiters="__,/"/> -->
+
+
+<!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/remote-teleop/dist/remote-teleop-fleet.js?userId=cfritz&deviceId=_fleet"></script>
+<remote-teleop-fleet id="cfritz" host="homedesk.local" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6Il9mbGVldCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy9yZW1vdGUtdGVsZW9wIiwidmFsaWRpdHkiOjg2NDAwLCJpYXQiOjE3MDcwMTI2Nzh9.pQbmkIZteyGnhfXvs-XSHjCBPTkH2SEA5Wn27XhBZaU"/> -->
+
+
+
+  <!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/webrtc-video/dist/webrtc-video-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+  <webrtc-video-device id="cfritz" host="homedesk.local" ssl="false"
+  jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy93ZWJydGMtdmlkZW8iLCJ2YWxpZGl0eSI6ODY0MDAsImlhdCI6MTcxMTEyNDQxNX0.tCVKO4q-afoCLVhlHfeJv5PcvgXY1ek3XWJCfWpjF5I"
   timeout=1800
-  type="videotestsrc"/>
+  count="4"
+
+  framerate="15/1"
+  height="480"
+  source="/dev/video1111"
+  streamtype="image/jpeg"
+  type="v4l2src"
+  width="640"
+
+  type_1="videotestsrc"
+
+  type_2="custom"
+  source_2="multifilesrc location=/home/cfritz/Downloads/inorbit.webm do-timestamp=true loop=true ! decodebin"
+
+  type_3="rostopic"
+  source_3="/faketopic"
+
+  />
+  type_3="custom"
+  source_3="multifilesrc location=/home/cfritz/Downloads/inorbit.webm do-timestamp=true loop=true ! decodebin ! videocrop right=1" -->
+
+
+  <!-- <script src="http://portal.homedesk.local/running/@transitive-robotics/remote-teleop/dist/remote-teleop-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+  <remote-teleop-device id="cfritz" host="homedesk.local" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy9yZW1vdGUtdGVsZW9wIiwidmFsaWRpdHkiOjg2NDAwLCJpYXQiOjE3MTMzNzI1MzF9.VR32-nYzItecHm3hGgXn0MNa2w25rUHuNL3bTh1Bx5M"
+    bitrate=100
+    control=undefined
+    count=1
+    rosversion="1"
+    source="/depth/color/image_raw"
+    timeout=1800
+    framerate="30/1"
+    type="rostopic"/> -->
+
+    <script src="http://portal.homedesk.local/running/@transitive-robotics/webrtc-video/dist/webrtc-video-device.js?userId=cfritz&deviceId=d_f5b1b62bd4"></script>
+    <webrtc-video-device id="cfritz" host="homedesk.local" ssl="false" jwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmcml0eiIsImRldmljZSI6ImRfZjViMWI2MmJkNCIsImNhcGFiaWxpdHkiOiJAdHJhbnNpdGl2ZS1yb2JvdGljcy93ZWJydGMtdmlkZW8iLCJ2YWxpZGl0eSI6ODY0MDAsImlhdCI6MTcxNDMzMDQwN30.6KyCbUh0vNLaMo5UqI2v_flxnQqt5ZhwfaPDnU8gSyk"
+      timeout=1800 />
 
 </body>
 </html>
